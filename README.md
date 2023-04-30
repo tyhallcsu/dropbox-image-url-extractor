@@ -141,11 +141,13 @@ The script leverages the Tampermonkey API, DOM manipulation, and asynchronous pr
 
 [Greasy Fork](https://greasyfork.org/en/users/866731)
 
-[Sleazy Fork]()
+[Sleazy Fork](https://sleazyfork.org/en/users/866731)
 
-[Open UserJS:]() #
+[OpenJS](https://www.openjs.com/scripts/)
 
-[Gist (GitHub):](https://gist.github.com/tyhallcsu/89d6c672f93e94cbd651354b587306b4) #
+[Open UserJS:](https://openuserjs.org/users/sharmanhall/scripts)
+
+[Gist (GitHub):](https://gist.github.com/tyhallcsu/89d6c672f93e94cbd651354b587306b4)
 
 [Dropbox](https://www.dropboxforum.com/t5/View-download-and-export/Export-Bulk-Dropbox-Image-Folder-URLs/td-p/677302)
 
