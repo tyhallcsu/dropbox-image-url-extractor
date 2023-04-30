@@ -1,14 +1,29 @@
 // ==UserScript==
-// @name         Extract All Dropbox Image URLs in Folder to Clipboard
-// @namespace    https://www.example.com/
-// @version      3
+// @name         Bulk Export Dropbox Image URLs (2023)
+// @version      3.0
 // @description  Extracts image URLs from a Dropbox page and copies them to the clipboard when a button is clicked.
-// @author       Tyler Hall Tech
+// @author       Tyler Hall Tech <tyler@tylerhalltech.com>
+// @supportURL   https://github.com/tyhallcsu/dropbox-image-url-extractor/issues/new
+// @namespace    https://github.com/tyhallcsu/dropbox-image-url-extractor
+// @homepageURL  https://github.com/tyhallcsu/dropbox-image-url-extractor
+// @license      MIT
+// @connect      greasyfork.org
+// @connect      sleazyfork.org
+// @connect      github.com
+// @connect      openuserjs.org
 // @match        https://www.dropbox.com/*
 // @grant        GM_setClipboard
 // @grant        GM_log
+// @compatible   chrome
+// @compatible   firefox
+// @compatible   edge
+// @compatible   opera
+// @compatible   safari
 // @run-at       document-idle
 // ==/UserScript==
+
+# https://greasyfork.org/en/scripts/465164-bulk-export-dropbox-image-urls-2023
+# https://sleazyfork.org/en/scripts/465164-bulk-export-dropbox-image-urls-2023
 
 (function() {
     'use strict';
@@ -77,3 +92,4 @@
         }, 3000);
     });
 })();
+
