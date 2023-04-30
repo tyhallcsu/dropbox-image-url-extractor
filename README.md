@@ -60,7 +60,7 @@ This Tampermonkey script allows you to extract image URLs from a Dropbox folder 
 
 | Version | Link | Alternative | Note |
 |:----------:|:----------:|:----------:|:----------:|
-Userscript | [Greasy Fork](https://greasyfork.org/scripts/866731) | [Install (GitHub)](https://github.com/tyhallcsu/dropbox-image-url-extractor/releases/latest/download/dropbox-image-url-extractor) | Work in Progress
+Userscript | [Greasy Fork](https://greasyfork.org/en/scripts/465164-bulk-export-dropbox-image-urls-2023) | [Install (GitHub)](https://github.com/tyhallcsu/dropbox-image-url-extractor/releases/latest/download/dropbox-image-url-extractor) | Work in Progress
 Chrome/Edge/Opera | [GitHub](https://github.com/tyhallcsu/dropbox-image-url-extractor/releases) | - | Work in progress
 Legacy | [Gist](https://gist.github.com/tyhallcsu/89d6c672f93e94cbd651354b587306b4) | [Link](https://www.dropboxforum.com/t5/View-download-and-export/Export-Bulk-Dropbox-Image-Folder-URLs/td-p/677302) | -
 
