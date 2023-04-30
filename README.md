@@ -3,9 +3,15 @@
 
 This Tampermonkey script allows you to extract image URLs from a Dropbox folder page and copy them to your clipboard with a single click. The script adds a "Copy all URLs" button to the Dropbox page, and when you click the button, it scrolls through the entire folder, collects all image URLs, and copies them to your clipboard.
 
+This is a userscript that extracts image URLs from a Dropbox page and copies them to the clipboard when a button is clicked. The script creates a button on the page that, when clicked, scrolls to the bottom of the page, waits for new images to load, and extracts the image URLs. The script then joins the URLs into a string separated by newlines. It then puts the links on your clipboard with ?dl=0 replaced with ?raw=1 parameters.
+
+## Bulk Extract All Dropbox Image URLs in Shared Folder to Clipboard
+
+> The power of extracting image URLs from a Dropbox folder page and copying them to your clipboard with a single click!
+
 ## Screenshots
 
-Spawns a floating button:
+Floating button in the bottom right of your browser window:
 
 <img width="183" alt="image" src="https://user-images.githubusercontent.com/16804423/235328108-d8626a80-460e-4f30-9c0e-de156ad63897.png">
 
@@ -22,7 +28,7 @@ Paste all your URLs:
 
 1.  Install the Tampermonkey browser extension from the [official website](https://www.tampermonkey.net/).
 2.  Open the Tampermonkey dashboard and go to the "Utilities" tab.
-3.  Under "URL," paste the raw URL of the script file (e.g., `https://raw.githubusercontent.com/username/repo-name/main/script.js`) and click "Import."
+3.  Under "URL," paste the raw URL of the script file (e.g., `https://raw.githubusercontent.com/tyhallcsu/dropbox-image-url-extractor/main/dropbox-image-bulk-url-extractor`) and click "Import."
 4.  Confirm the installation when prompted.
 
 ## How to Use
@@ -31,6 +37,65 @@ Paste all your URLs:
 2.  Click the "Copy all URLs" button that appears in the bottom right corner of the page.
 3.  The script will scroll through the entire folder, collect all image URLs, and copy them to your clipboard.
 4.  The button will display the number of URLs copied and will be temporarily disabled for 3 seconds before becoming active again.
+
+## About
+
+> [Changelog (GitHub)](https://github.com/tyhallcsu/dropbox-image-url-extractor/releases)
+
+This Tampermonkey script allows you to extract image URLs from a Dropbox folder page and copy them to your clipboard with a single click. The script adds a "Copy all URLs" button to the Dropbox page, and when you click the button, it scrolls through the entire folder, collects all image URLs, and copies them to your clipboard.
+
+**Known bugs:**
+
+-   None.
+
+## Preview(s)
+
+<img width="500" alt="Preview" src="https://user-images.githubusercontent.com/16804423/235327792-5bd222eb-5be0-485c-afc8-026daf1fe726.png">
+
+## Downloads
+
+----------
+
+***
+
+| Version | Link | Alternative | Note |
+|:----------:|:----------:|:----------:|:----------:|
+Userscript | [Greasy Fork](https://greasyfork.org/scripts/866731) | [Install (GitHub)](https://github.com/tyhallcsu/dropbox-image-url-extractor/releases/latest/download/dropbox-image-url-extractor) | Work in Progress
+Chrome/Edge/Opera | [GitHub](https://github.com/tyhallcsu/dropbox-image-url-extractor/releases) | - | Work in progress
+Legacy | [Gist](https://gist.github.com/tyhallcsu/89d6c672f93e94cbd651354b587306b4) | [Link](https://www.dropboxforum.com/t5/View-download-and-export/Export-Bulk-Dropbox-Image-Folder-URLs/td-p/677302) | -
+
+
+**(Optional) Mobile Bookmarklet:**
+
+JSCopy code
+
+`javascript:(function(){['https://raw.githubusercontent.com/tyhallcsu/dropbox-image-url-extractor/main/dropbox-image-bulk-url-extractor'].map(s=>document.body.appendChild(document.createElement('script')).src=s)})();` 
+
+----------
+
+## Features
+
+> Tested and compatible with Tampermonkey.
+
+-   Automatically scrolls through the entire Dropbox folder to load all images.
+-   Extracts image URLs and copies them to the clipboard with a single click.
+-   Button is temporarily disabled after copying URLs to prevent accidental clicks.
+-   Configurable wait time for loading new images.
+
+## FAQ / Troubleshooting
+
+Nothing appears bottom right:
+
+-   Try again on another Dropbox folder page.
+-   Make sure the Tampermonkey extension is enabled and the script is installed.
+-   If issue persists, see [Viewing UserJS Logs](https://github.com/tyhallcsu/dropbox-image-url-extractor/#viewing-userjs-logs).
+
+## Viewing UserJS Logs
+
+-   Open your web browser's Inspect Element and navigate to its Console.
+-   Locate the following **[UserScript] < message >** (you can filter your Console by entering **UserScript** or **[**).
+-   Feel free to screenshot any error messages to the [GitHub](https://github.com/tyhallcsu/dropbox-image-url-extractor/issues) for additional help.
+-   If nothing appears, this means the script is not executing at all.
 
 ## Configuration
 
@@ -64,13 +129,27 @@ The Tampermonkey script is designed to automate the process of extracting image 
 
 The script leverages the Tampermonkey API, DOM manipulation, and asynchronous programming to automate the process of extracting image URLs from a Dropbox folder page and copying them to the user's clipboard. The script is designed to be compatible with the Dropbox web interface.
 
-## License
+### Source Code
 
-This project is licensed under the MIT License. See the [LICENSE](https://chat.openai.com/LICENSE) file for details.
+-   [https://github.com/tyhallcsu/dropbox-image-url-extractor](https://github.com/tyhallcsu/dropbox-image-url-extractor)
 
-## Author
+### Contacts
 
--   Tyler Hall Tech
+[GitHub](https://github.com/tyhallcsu)
+
+[Twitter](https://twitter.com/sharmanhall)
+
+[Greasy Fork](https://greasyfork.org/en/users/866731)
+
+[Sleazy Fork]()
+
+[Open UserJS:]() #
+
+[Gist (GitHub):](https://gist.github.com/tyhallcsu/89d6c672f93e94cbd651354b587306b4) #
+
+[Dropbox](https://www.dropboxforum.com/t5/View-download-and-export/Export-Bulk-Dropbox-Image-Folder-URLs/td-p/677302)
+
+Tyler Hall Tech
 
 ## Disclaimer
 
@@ -78,4 +157,10 @@ This script is provided "as is" without warranty of any kind. Use it at your own
 
 ----------
 
-As for the URL slug for the GitHub repository, you could use something like `dropbox-image-url-extractor`. This slug is descriptive and clearly indicates the purpose of the repository.`enter code here`
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/tyhallcsu/dropbox-image-url-extractor/blob/main/LICENSE) file for details.
+
+## Author
+
+-   Tyler Hall Tech
