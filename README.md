@@ -139,9 +139,9 @@ The script leverages the Tampermonkey API, DOM manipulation, and asynchronous pr
 
 [Twitter](https://twitter.com/sharmanhall)
 
-[Greasy Fork](https://greasyfork.org/en/users/866731)
+[Greasy Fork](https://greasyfork.org/en/users/866731) [ALT](https://greasyfork.org/en/scripts/465164-bulk-export-dropbox-image-urls-2023)
 
-[Sleazy Fork](https://sleazyfork.org/en/users/866731)
+[Sleazy Fork](https://sleazyfork.org/en/users/866731) [ALT](https://sleazyfork.org/en/scripts/465164-bulk-export-dropbox-image-urls-2023)
 
 [OpenJS](https://www.openjs.com/scripts/)
 
