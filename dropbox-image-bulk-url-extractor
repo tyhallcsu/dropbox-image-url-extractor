@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Bulk Export Dropbox Image URLs (2023)
-// @version      3.0
+// @version      3.1
 // @description  Extracts image URLs from a Dropbox page and copies them to the clipboard when a button is clicked.
-// @author       Tyler Hall Tech <tyler@tylerhalltech.com>
+// @author       sharmanhall
 // @supportURL   https://github.com/tyhallcsu/dropbox-image-url-extractor/issues/new
 // @namespace    https://github.com/tyhallcsu/dropbox-image-url-extractor
 // @homepageURL  https://github.com/tyhallcsu/dropbox-image-url-extractor
@@ -20,32 +20,30 @@
 // @compatible   opera
 // @compatible   safari
 // @run-at       document-idle
+// @icon         https://cfl.dropboxstatic.com/static/metaserver/static/images/favicon-vfl8lUR9B.ico
 // ==/UserScript==
-
-# https://greasyfork.org/en/scripts/465164-bulk-export-dropbox-image-urls-2023
-# https://sleazyfork.org/en/scripts/465164-bulk-export-dropbox-image-urls-2023
-
+ 
 (function() {
     'use strict';
-
+ 
     const SECONDS_TO_WAIT_FOR_SCROLL = 1; // adjust as needed
     const DOWNLOAD_URL_REPLACEMENT = '?raw=1';
-
+ 
     // function to get all image link elements
     function getImageLinks() {
         const imageLinks = document.querySelectorAll('a.dig-Link.sl-link--file[href*="dl=0"]');
         return Array.from(imageLinks).map(link => link.getAttribute('href').replace(/\?dl=0$/, DOWNLOAD_URL_REPLACEMENT));
     }
-
+ 
     // function to scroll to the bottom of the page and wait for new images to load
     async function waitForImagesToLoad() {
         window.scrollTo(0, document.body.scrollHeight);
         await new Promise(resolve => setTimeout(resolve, SECONDS_TO_WAIT_FOR_SCROLL * 1000));
     }
-
+ 
     // create an array to hold the image URLs
     let imageUrls = [];
-
+ 
     // add a button to the page that will copy the image URLs to the clipboard when clicked
     const copyButton = document.createElement('button');
     copyButton.classList.add('dig-Button', 'dig-Button--primary', 'dig-Button--standard', 'copy-urls-button');
@@ -55,7 +53,7 @@
     copyButton.style.right = '20px';
     copyButton.style.zIndex = '9999';
     document.body.appendChild(copyButton);
-
+ 
     // add a click event listener to the button
     copyButton.addEventListener('click', async function() {
         let finished = false;
@@ -63,27 +61,27 @@
         while (!finished) {
             // scroll to the bottom of the page and wait for new images to load
             await waitForImagesToLoad();
-
+ 
             // get the newly loaded image URLs
             const newImageUrls = getImageLinks().filter(url => !imageUrls.includes(url));
             imageUrls.push(...newImageUrls);
-
+ 
             // check if all images have been loaded
             finished = newImageUrls.length === 0;
-
+ 
             numUrls += newImageUrls.length;
         }
-
+ 
         // join the image URLs into a string separated by newlines
         const imageUrlString = imageUrls.join('\n');
-
+ 
         // copy the image URL string to the clipboard
         GM_setClipboard(imageUrlString, 'text');
-
+ 
         // disable the button and change the text to indicate that the URLs have been copied
         copyButton.disabled = true;
         copyButton.textContent = `${numUrls} URL(s) copied to clipboard`;
-
+ 
         // enable the button again after 3 seconds
         setTimeout(function() {
             imageUrls = [];
@@ -92,4 +90,3 @@
         }, 3000);
     });
 })();
-
