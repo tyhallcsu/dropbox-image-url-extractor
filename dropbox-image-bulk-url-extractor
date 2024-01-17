@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name         Bulk Export Dropbox Image URLs (2023)
-// @version      3.1
+// @name         Bulk Export Dropbox Image URLs (2024)
+// @version      3.1.1
 // @description  Extracts image URLs from a Dropbox page and copies them to the clipboard when a button is clicked.
 // @author       sharmanhall
 // @supportURL   https://github.com/tyhallcsu/dropbox-image-url-extractor/issues/new
@@ -21,18 +21,29 @@
 // @compatible   safari
 // @run-at       document-idle
 // @icon         https://cfl.dropboxstatic.com/static/metaserver/static/images/favicon-vfl8lUR9B.ico
+// @downloadURL https://update.greasyfork.org/scripts/465164/Bulk%20Export%20Dropbox%20Image%20URLs%20%282024%29.user.js
+// @updateURL https://update.greasyfork.org/scripts/465164/Bulk%20Export%20Dropbox%20Image%20URLs%20%282024%29.meta.js
 // ==/UserScript==
- 
+
+// NEW CONTRIBUTOR: [pixelsilo](https://www.dropboxforum.com/t5/user/viewprofilepage/user-id/1795103)
+// SOURCE: https://www.dropboxforum.com/t5/View-download-and-export/Export-Bulk-Dropbox-Image-Folder-URLs/m-p/744340/highlight/true#
+
 (function() {
     'use strict';
  
     const SECONDS_TO_WAIT_FOR_SCROLL = 1; // adjust as needed
     const DOWNLOAD_URL_REPLACEMENT = '?raw=1';
  
-    // function to get all image link elements
+    // DELETED: MODIFIED BELOW || function to get all image link elements
+    //function getImageLinks() {
+    //    const imageLinks = document.querySelectorAll('a.dig-Link.sl-link--file[href*="dl=0"]');
+    //    return Array.from(imageLinks).map(link => link.getAttribute('href').replace(/\?dl=0$/, DOWNLOAD_URL_REPLACEMENT));
+    //}
+
     function getImageLinks() {
-        const imageLinks = document.querySelectorAll('a.dig-Link.sl-link--file[href*="dl=0"]');
-        return Array.from(imageLinks).map(link => link.getAttribute('href').replace(/\?dl=0$/, DOWNLOAD_URL_REPLACEMENT));
+    // Update the selector to match the Dropbox page structure
+    const imageLinks = document.querySelectorAll('a.dig-Link._sl-file-name_1iaob_86.dig-Link--primary[href*="dl=0"]');
+    return Array.from(imageLinks).map(link => link.getAttribute('href').replace(/\?dl=0$/, DOWNLOAD_URL_REPLACEMENT));
     }
  
     // function to scroll to the bottom of the page and wait for new images to load
